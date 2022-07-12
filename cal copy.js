@@ -100,30 +100,48 @@ function onClickClear() {
 }
 
 function onClickNumber(event) {
-    // if(!OP) {
+    if(!OP) {
         preNum = event.target.textContent;
         result.value += preNum;
         preNum = result.value;
-    // }
+    }
 
-    // if(!currentNum) {
-    //     result.value = '';
-    // }
-
-    // currentNum = event.target.textContent;
-    // result.value += preNum;
-    // preNum = result.value;
+    if(OP) {
+        currentNum = event.target.textContent;
+        result.value += currentNum;
+        currentNum = result.value;
+    }
 }
 
 function onClickOperator(event) {
     if(preNum) {
         OP = event.target.textContent;
-        
+        result.value += OP;
     }
+}
+
+function CAL(preNum, OP, currentNum) {
+    if(OP === '+') {
+        result = preNum + currentNum;
+    }
+    if(OP === '-') {
+        result = preNum - currentNum;
+    }
+    if(OP === '*') {
+        result = preNum * currentNum;
+    }
+    if(OP === '/') {
+        result = preNum / currentNum;
+    }
+    return String(result);
 }
 
 if(clear){
     clear.addEventListener("click", onClickClear);
+}
+
+if(calculate){
+    calculate.addEventListener("click", CAL);
 }
 
 Array.from(numbers).forEach(number => number.addEventListener("click", onClickNumber));
