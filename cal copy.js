@@ -146,9 +146,9 @@
 // 계산
 // cal[even] = number
 // cal[odd] = operator
-const cal = ['1', '+', '3', '/', '2'];
+const cal = ['1', '+', '3', '/', '3'];
 
-for(let i = 1; i < cal.length; i += 2) {
+function operate() {
     if (cal[i] === '+') {
         result = parseInt(cal[i-1]) + parseInt(cal[i+1]);
     }
