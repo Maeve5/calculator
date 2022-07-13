@@ -1,29 +1,7 @@
-// let numOne = '';
-// let operator = '';
-// let numTwo = '';
-// const result = document.querySelector('#result');
+// addEventListener는 이벤트라서 함수 인자로 무조건 e/event를 받음
+// 이미 선언된 변수를 바로 함수 내에서 호출해도 기능함
 
-// function onClickNumber(event) {
-//     if(!operator) {
-//         numOne += event.target.textContent;
-//         result.value += event.target.textContent;
-//         return;
-//     }
-
-//     if(!numTwo) {
-//         result.value = '';
-//     }
-
-//     numTwo += event.target.textContent;
-//     result.value += event.target.textContent;
-// }
-
-// document.querySelector("#number").addEventListener('click', onClickNumber);
-
-// ///////
-
-
-// const result = document.getElementById("result");
+// let result = document.getElementById("result");
 // const numbers = document.getElementsByClassName("number");
 // const operators = document.getElementsByClassName("operator");
 // const calculate = document.getElementById("calculate");
@@ -31,118 +9,173 @@
 
 // let preNum = '';
 // let currentNum = '';
-// let OP = '';
-// let calculating = true;
+// let operator = '';
 
-// function onClickCalculate() {
-//     calculating = false;
-// }
-
-// const onClickClear = () => {
-//     calculating = false;
-//     result.value = '';
-// }
-
-// const onClickNumber = (e) => {
-//     while (calculating) {
-//         if (!OP) {
-//             preNum = e.target.textContent;
-//             result.value += e.target.textContent;
-//             return;
-//         }
-        
-//         if (!currentNum) {
+// function onClickNumber(event) {
+//     if(!operator) {
+//         if(!preNum) {
 //             result.value = '';
-//             currentNum =preNum;
 //         }
-//     }
-// }
-
-// const onClickOperator = (e) => {
-//     if (preNum) {
-//         OP = e.target.textContent;
-//         result.value += e.target.textContent;
+//         preNum += event.target.textContent;
+//         result.value += event.target.textContent;
 //     }
 //     else {
-        
+//         if(!currentNum) {
+//             result.value = '';
+//         }
+//         currentNum += event.target.textContent;
+//         result.value += event.target.textContent;
 //     }
-//     return;
 // }
+
+// function onClickOperator(event) {
+//     if(preNum) {
+//         operator = event.target.textContent;
+//     }
+// }
+
+// function CAL(event) {
+//     if(operator === '+') {
+//         result.value = parseInt(preNum) + parseInt(currentNum);
+//     }
+//     else if(operator === '-') {
+//         result.value = parseInt(preNum) - parseInt(currentNum);
+//     }
+//     else if(operator === '*') {
+//         result.value = parseInt(preNum) * parseInt(currentNum);
+//     }
+//     else if(operator === '/') {
+//         result.value = parseInt(preNum) / parseInt(currentNum);
+//     }
+// }
+
+// function onClickClear() {
+//     preNum = '';
+//     currentNum = '';
+//     operator = '';
+//     result.value = '0';
+// }
+
 
 // Array.from(numbers).forEach(number => number.addEventListener("click", onClickNumber));
 // Array.from(operators).forEach(operator => operator.addEventListener("click", onClickOperator));
 
 // if(calculate){
-//     calculate.addEventListener("click", onClickCalculate);
+//     calculate.addEventListener("click", CAL);
+// }
+
+
+
+// /////////
+
+// const result = document.getElementById("result");
+// const numbers = document.getElementsByClassName("number");
+// const operators = document.getElementsByClassName("operator");
+// const calculate = document.getElementById("calculate");
+// const clear = document.getElementById("clear");
+
+// let cal = [];
+
+// Array.from(numbers).forEach(number => number.addEventListener("click", print));
+// Array.from(operators).forEach(operator => operator.addEventListener("click", print));
+
+// function print(e) {
+//     if (operators)
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let Num = [];
+// let Opr = [];
+// let operator = '';
+
+// Array.from(numbers).forEach(number => number.addEventListener("click", onClickNumber));
+
+// Array.from(operators).forEach(operator => operator.addEventListener("click", onClickOperator));
+
+// function onClickNumber(e) {
+//     result.value += e.target.textContent;
+//     Num.splice(0, 1, result.value);
+// }
+
+// function onClickOperator(e) {
+//     operator = e.target.textContent;
+//     Opr.splice(0, 1, operator);
+// }
+
+// let num = '';
+
+// function onClickNumber(e) {
+    //     result.value += e.target.textContent;
+    //     num = result.value;
+    // }
+    
+// let cal = [];
+// cal = cal ? cal : [];
+
+    
+
+
+
+
+
+
+
+
+// 계산
+// cal[even] = number
+// cal[odd] = operator
+const cal = ['1', '+', '3', '/', '2'];
+
+for(let i = 1; i < cal.length; i += 2) {
+    if (cal[i] === '+') {
+        result = parseInt(cal[i-1]) + parseInt(cal[i+1]);
+    }
+    if (cal[i] === '-') {
+        result = parseInt(cal[i-1]) - parseInt(cal[i+1]);
+    }
+    if (cal[i] === '*') {
+        result = parseInt(cal[i-1]) * parseInt(cal[i+1]);
+    }
+    if (cal[i] === '/') {
+        result = parseInt(cal[i-1]) / parseInt(cal[i+1]);
+    }
+    console.log(result);
+}
+
+// 계산 버트
+// function onClickOperator(e) {
+//     operator = e.target.textContent;
+// }
+
+// 초기화 버튼
+// function onClickClear() {
+//     cal = [];
+//     operator = [];
+//     result.value = '';
 // }
 
 // if(clear){
-//     clear.addEventListener("click",onClickClear);
+//     clear.addEventListener("click", onClickClear);
 // }
-
-// ///////22자리 계산기
-
-const result = document.getElementById("result");
-const numbers = document.getElementsByClassName("number");
-const operators = document.getElementsByClassName("operator");
-const calculate = document.getElementById("calculate");
-const clear = document.getElementById("clear");
-
-let preNum = '';
-let currentNum = '';
-let OP = '';
-
-function onClickClear() {
-    preNum = '';
-    currentNum = '';
-    OP = '';
-    result.value = '';
-}
-
-function onClickNumber(event) {
-    if(!OP) {
-        preNum = event.target.textContent;
-        result.value += preNum;
-        preNum = result.value;
-    }
-
-    if(OP) {
-        currentNum = event.target.textContent;
-        result.value += currentNum;
-        currentNum = result.value;
-    }
-}
-
-function onClickOperator(event) {
-    if(preNum) {
-        OP = event.target.textContent;
-        result.value += OP;
-    }
-}
-
-function CAL(preNum, OP, currentNum) {
-    if(OP === '+') {
-        result = preNum + currentNum;
-    }
-    if(OP === '-') {
-        result = preNum - currentNum;
-    }
-    if(OP === '*') {
-        result = preNum * currentNum;
-    }
-    if(OP === '/') {
-        result = preNum / currentNum;
-    }
-    return String(result);
-}
-
-if(clear){
-    clear.addEventListener("click", onClickClear);
-}
-
-if(calculate){
-    calculate.addEventListener("click", CAL);
-}
-
-Array.from(numbers).forEach(number => number.addEventListener("click", onClickNumber));
-Array.from(operators).forEach(operator => operator.addEventListener("click", onClickOperator));
