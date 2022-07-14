@@ -18,13 +18,20 @@ body {
     grid-row: 1/2;
 }
 
+.item {
+    display: block;
+}
+
 .item input {
+    display: block;
     border: none;
     background-color: #f7f7f7;
-    width: 196px;
+    width: auto;
     height: 46px;
     text-align: right;
     font-size: 1rem;
+    padding: 0 8px;
+    margin: 0 auto;
 }
 
 button {
