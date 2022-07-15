@@ -1,3 +1,5 @@
+// 너무 복잡한 로직 ..@_@;
+
 const numbers = document.getElementsByClassName("number");
 const operators = document.getElementsByClassName("operator");
 const calculate = document.getElementById("calculate");
