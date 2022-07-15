@@ -1,7 +1,7 @@
 const numbers = document.getElementsByClassName("number");
 const operators = document.getElementsByClassName("operator");
 const calculate = document.getElementById("calculate");
-let result = document.getElementById("result");
+const result = document.getElementById("result"); // result 변수값 자체를 쓰는 게 아님 => 변경될 일 없음 => const 사용
 
 let num = 0; // 변수를 ''로 받으면 string형, 0으로 받으면 int형으로 선언
 let operator = '';
